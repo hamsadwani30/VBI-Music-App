@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-6">
+        <h4 class="m-0 p-3 mb-2"> <span class="text-primary">{{key}}</span></h4>
+    </div>
+    <div class="col-5">
+        <input type="text" class="form-control form-control-sm m-3 p-3" placeholder="Search..." [(ngModel)]="searchSongText" >
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+       <div class="float-right text-primary">
+           <i class="fa fa-random fa-2x" (click)="shufflePlaylist()" aria-hidden="true" style="cursor: pointer;"></i>
+        </div> 
+    </div>
+</div>
+
+<div class="row">
+        <div class="col-6">
+            <table class="table table-hover table-borderless ml-2">
+                <tbody>
+                    <tr class="shadow rounded text-white" *ngFor="let song of songsList | filter:searchSongText" >
+                    <td>
+                        <img class="img-thumbnail rounded" src="{{song.thumbnailUrl}}" alt="{{song.title}}">
+                    </td> 
+                        <td>
+                            {{song.title}}
+                        </td>
+                        <td class="text-center" style="cursor: pointer;">
+                            <i class="fa fa-play" aria-hidden="true" (click)="onPlay(song)"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-6">
+            <app-song *ngIf="viewPlayer" [song]="selectedSong"></app-song>
+        </div>
+    </div>

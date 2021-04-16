@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+$body-bg: #000;
+$theme-colors: (
+  "blue": #0056b3,
+  "danger": #ff4136
+);
+
+.tablerow{
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+// table{
+//   width: 700px !important;
+// }
+
+// tr td:first-child{
+//   width: auto;
+// }
+
+// td{
+//   padding : 30px !important;
+//   cursor: pointer;
+//   width: 200px;
+// }
+
+.img-thumbnail {
+  height: 60px !important;
+  width: 60px !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+input.search-query {
+  background-color : #495057;
+  color: #FFFFFF !important;
+}
+
+.form-control:focus {
+  background-color : #495057 !important;
+}
+
+::placeholder{
+  color: #FFFFFF !important;
+}
