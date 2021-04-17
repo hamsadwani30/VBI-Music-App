@@ -7,10 +7,12 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 $body-bg: #000;
-$theme-colors: (
-  "blue": #0056b3,
-  "danger": #ff4136
-);
+// $theme-colors: (
+//   "blue": #0056b3,
+//   "danger": #ff4136
+// );
+
+$primary: #0056b3;
 
 .tablerow{
   padding-right: 0px !important;
@@ -54,4 +56,11 @@ input.search-query {
 
 ::placeholder{
   color: #FFFFFF !important;
+}
+
+.image{
+  background: url("./assets/background_img.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-blend-mode: lighten;
 }
