@@ -11,6 +11,7 @@ export class PlaylistsComponent implements OnInit {
 
   playlists = [];
   songs = [];
+  searchSongText = "";
   constructor(private router: Router,private songService: SongsService) { }
 
   ngOnInit() {

@@ -2,8 +2,9 @@
         <div class="col-12">
            <img  class="img-fluid rounded h-75 w-75" src="{{song.thumbnailUrl}}" alt="{{song.title}}" >
            <marquee>{{song.title}}</marquee>
-                <audio controls id="audio" preload="true" autoplay >
-                    <source media="(min-width:750px)"  src="assets/sample.mp3">
+                <audio controls id="audio" [autoplay] = "autoplayed">
+                    <source media="(min-width:750px)"  src="{{track}}">
                 </audio>
+                <!-- {{autoplayed}} -->
         </div>
 </div>

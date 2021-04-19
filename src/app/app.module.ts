@@ -18,6 +18,7 @@ import { PlaylistsComponent } from './playlists/playlists.component';
 import { ViewPlaylistComponent } from './view-playlist/view-playlist.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AlbumsComponent } from './albums/albums.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AlbumsComponent } from './albums/albums.component';
     SongComponent,
     PlaylistsComponent,
     ViewPlaylistComponent,
-    AlbumsComponent
+    AlbumsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

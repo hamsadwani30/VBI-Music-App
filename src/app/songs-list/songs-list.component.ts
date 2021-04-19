@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, TemplateRef } from '@angular/core';
 // import  arrayShuffle from 'array-shuffle';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Subject } from 'rxjs';
 import { SongsService } from '../services/songs.service';
 
 @Component({
@@ -14,18 +15,23 @@ export class SongsListComponent implements OnInit {
   enablePlaylistCreation:boolean = false;
   searchSongText : string = "";  
   playlistname : string = "";
-  playlist  = [];
+  playlist : any = [];
   submitted :boolean = false;
   viewPlayer : boolean = false;
   modalRef: BsModalRef;
  selectedSong;
- play: boolean = false;
-  constructor(private songsService: SongsService,private modalService: BsModalService) {
+ playlists : any = [];
+ play : boolean;
+ isExist : boolean = false;
+
+ constructor(private songsService: SongsService,private modalService: BsModalService) {
     
    }
 
   ngOnInit() {
    this.getSongsList();
+   this.playlists = this.songsService.getPlaylists();
+   console.log(this.playlists);
   }
 
   openModal(template: TemplateRef<any>) {
@@ -35,8 +41,8 @@ export class SongsListComponent implements OnInit {
  getSongsList(){
     this.songsService.getSongs().subscribe((data)=>{
       this.songsList = data;
-      console.log(this.songsList);
-    });
+      // console.log(this.songsList);
+    }); 
   }
 
   onPlay(song){
@@ -60,16 +66,20 @@ export class SongsListComponent implements OnInit {
         }
     });
     }
-    
   }
 
   savePlaylist(){
     this.submitted = true;
-    console.log("Playlist :"+ JSON.stringify(this.playlist));
     if(this.playlistname != null || this.playlistname != undefined || this.playlistname != ""){
+      for(let playlist of this.playlists){
+        if(playlist == this.playlistname){
+          this.isExist = true;
+          return;
+        }
+      }
       localStorage.setItem(this.playlistname,JSON.stringify(this.playlist));
       this.enablePlaylistCreation = false;
-     this.modalRef.hide();
+      this.modalRef.hide();
     }
   }
 
@@ -77,5 +87,7 @@ export class SongsListComponent implements OnInit {
     console.log("shuffle")
     this.songsList = this.songsList.sort(() => Math.random() - 0.5);
   }
+
+
 
 }

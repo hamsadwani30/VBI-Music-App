@@ -28,7 +28,7 @@ export class SongsService {
     let i=keys.length;
 
     while(i--){
-      values.push(localStorage.getItem(keys[i]))
+      values.push(localStorage.getItem(keys[i]));
     }
 
     return values;

@@ -5,11 +5,11 @@
         <h4 class="m-0 p-3"> <span class="text-primary">Songs</span></h4>
     </div>
     <div class="col-5">
-        <input type="text" class="search-query form-control form-control-sm m-3 p-3" placeholder="Search..." [(ngModel)]="searchSongText" >
+        <input type="text" class="search-query form-control form-control-sm float-left m-3 p-3" placeholder="Search..." [(ngModel)]="searchSongText" >
     </div>
 </div>
 
-<div class="mb-2">
+<div>
     <div class="row">
         <div class="col-3">
             <button class="btn btn-primary ml-3" type="button" (click)="enableAddingSongs()" *ngIf="!enablePlaylistCreation">Create Playlist</button>
@@ -24,15 +24,16 @@
         <div *ngIf="this.songsList" class="col-6 align-center">
             <table class="table table-hover table-borderless ml-2">
                 <tbody>
-                <tr class="shadow rounded text-white" *ngFor="let song of songsList | filter:searchSongText | paginate: { itemsPerPage: 10, currentPage: p } ;  let i = index;">    
+                <tr class="shadow rounded text-white text-center" *ngFor="let song of songsList | filter:searchSongText | paginate: { itemsPerPage: 5, currentPage: p } ;  let i = index;">    
                     <td><img src="{{song.thumbnailUrl}}" alt="{{song.title}}" class="img-thumbnail rounded"></td>
                     <td class="tablerow">{{song.title}}</td>
-                    <td class="text-center" style="cursor: pointer;"><i class="fa fa-play" aria-hidden="true" (click)="onPlay(song)"></i></td>
+                    <td style="cursor: pointer;"><i class="fa fa-play" aria-hidden="true" (click)="onPlay(song)"></i></td>
+                    <!-- <td>{{}}</td> -->
                     <td *ngIf="enablePlaylistCreation">
                         <div class="custom-control custom-checkbox">
                             <input class="custom-control-input" type="checkbox" name="checkbox" id="customCheck{{p}}{{i}}" (change)="addSong($event,song)">
-                            <label class="custom-control-label" for="customCheck{{p}}{{i}}"></label>
-                          </div>
+                            <label class="custom-control-label" for="customCheck{{p}}{{i}}" style="cursor: pointer;"></label>
+                         </div>
                     </td>
                 </tr>
                 </tbody>
@@ -54,14 +55,14 @@
     <div class="modal-body">
         Name
         <form name="playlistForm" novalidate>
-            <input type="text" name="playlistname" class="form-control" [(ngModel)]="playlistname" id="playlistname"  required>
-            <!-- <div *ngIf="submitted && playlistname == ''" class="invalid-feedback">[ngClass]="{ 'is-invalid': submitted && playlistname == '' }"
-                <div *ngIf="playlistname ">Please enter name</div>
-            </div> -->
+            <input type="text" name="playlistname" class="form-control" [(ngModel)]="playlistname" id="playlistname" [ngClass]="{ 'is-invalid': submitted && isExist}" required>
+            <div *ngIf="submitted && isExist" class="invalid-feedback">
+                <div *ngIf="playlistname && isExist">Playlist name already exists!</div>
+            </div>
+            <!-- {{submitted}} {{isExist}} -->
             <div class="m-2">
                 <button type="button" class="btn btn-primary float-right" (click)="savePlaylist()" [disabled]="playlistname == ''">Save</button>
             </div>
-           
         </form>
     </div>
   </ng-template>

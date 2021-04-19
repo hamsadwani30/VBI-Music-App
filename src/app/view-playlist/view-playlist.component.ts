@@ -11,8 +11,10 @@ export class ViewPlaylistComponent implements OnInit {
 
   key : string ;
   selectedSong = "";
+  searchSongText = "";
   songsList = [];
   viewPlayer :boolean = false;
+  play : boolean = false;
   constructor(private router: ActivatedRoute, private songsService : SongsService) { }
 
   ngOnInit() {
@@ -34,6 +36,7 @@ export class ViewPlaylistComponent implements OnInit {
   onPlay(song){
     this.viewPlayer = true;
     this.selectedSong = song;
+    this.play = true;
   }
 
   shufflePlaylist(){

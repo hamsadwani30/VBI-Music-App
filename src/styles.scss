@@ -5,37 +5,26 @@
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-$body-bg: #000;
-// $theme-colors: (
-//   "blue": #0056b3,
-//   "danger": #ff4136
-// );
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: #FFFFFF;}
 
 $primary: #0056b3;
+
+.ngx-pagination li{
+  color:#FFFFFF !important;
+}
+
+.ngx-pagination li :hover{
+  color: black !important;
+}
 
 .tablerow{
   padding-right: 0px !important;
   padding-left: 0px !important;
 }
 
-// table{
-//   width: 700px !important;
-// }
-
-// tr td:first-child{
-//   width: auto;
-// }
-
-// td{
-//   padding : 30px !important;
-//   cursor: pointer;
-//   width: 200px;
-// }
-
 .img-thumbnail {
-  height: 60px !important;
-  width: 60px !important;
+  height: 50px !important;
+  width: 50px !important;
   padding: 0 !important;
   border: none !important;
 }
@@ -45,22 +34,22 @@ html, body {
   overflow-x: hidden;
 }
 
-input.search-query {
-  background-color : #495057;
-  color: #FFFFFF !important;
-}
-
-.form-control:focus {
-  background-color : #495057 !important;
-}
-
-::placeholder{
-  color: #FFFFFF !important;
-}
-
 .image{
   background: url("./assets/background_img.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
   background-blend-mode: lighten;
+}
+
+input.search-query {
+  background-color : #195ca0;
+  color: #FFFFFF !important;
+}
+
+.form-control-sm:focus {
+  background-color : #195ca0 !important;
+}
+
+::placeholder{
+  color: #FFFFFF !important;
 }
