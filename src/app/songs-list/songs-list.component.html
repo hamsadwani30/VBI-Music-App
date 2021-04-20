@@ -24,7 +24,7 @@
         <div *ngIf="this.songsList" class="col-6 align-center">
             <table class="table table-hover table-borderless ml-2">
                 <tbody>
-                <tr class="shadow rounded text-white text-center" *ngFor="let song of songsList | filter:searchSongText | paginate: { itemsPerPage: 5, currentPage: p } ;  let i = index;">    
+                <tr class="shadow rounded text-white text-center" *ngFor="let song of songsList | filter:searchSongText | paginate: { itemsPerPage: 5, currentPage: p } ;  let i = index; trackBy : trackByFn">    
                     <td><img src="{{song.thumbnailUrl}}" alt="{{song.title}}" class="img-thumbnail rounded"></td>
                     <td class="tablerow">{{song.title}}</td>
                     <td style="cursor: pointer;"><i class="fa fa-play" aria-hidden="true" (click)="onPlay(song)"></i></td>

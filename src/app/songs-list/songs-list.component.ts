@@ -23,16 +23,19 @@ export class SongsListComponent implements OnInit {
  playlists : any = [];
  play : boolean;
  isExist : boolean = false;
+ p : number;
 
- constructor(private songsService: SongsService,private modalService: BsModalService) {
-    
-   }
+ constructor(private songsService: SongsService,private modalService: BsModalService) {}
 
   ngOnInit() {
    this.getSongsList();
    this.playlists = this.songsService.getPlaylists();
    console.log(this.playlists);
   }
+
+  trackByFn(index, item) {
+    return index; // or item.id
+    }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);

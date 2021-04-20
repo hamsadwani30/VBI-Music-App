@@ -10,6 +10,7 @@ export class AlbumsComponent implements OnInit {
 
   albumLists : [] = [];
   searchSongText = "";
+  p : number ;
 
   constructor(private songService: SongsService) { }
 

@@ -15,6 +15,8 @@ export class ViewPlaylistComponent implements OnInit {
   songsList = [];
   viewPlayer :boolean = false;
   play : boolean = false;
+  p : number;
+
   constructor(private router: ActivatedRoute, private songsService : SongsService) { }
 
   ngOnInit() {
@@ -27,6 +29,10 @@ export class ViewPlaylistComponent implements OnInit {
 
     this.getSongs(this.key);
   }
+
+  trackByFn(index, item) {
+    return index; // or item.id
+    }
 
   getSongs(key){
     this.songsList = this.songsService.getAllSongsfromPlaylist(key);

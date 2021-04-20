@@ -18,7 +18,7 @@
         <div class="col-6">
             <table class="table table-hover table-borderless ml-2">
                 <tbody>
-                    <tr class="shadow rounded text-white" *ngFor="let song of songsList | filter:searchSongText" >
+                    <tr class="shadow rounded text-white" *ngFor="let song of songsList | filter:searchSongText | paginate : { itemsPerPage : 5 , currentPage : p} ; let i = index ; trackBy: trackByFn" >
                     <td>
                         <img class="img-thumbnail rounded" src="{{song.thumbnailUrl}}" alt="{{song.title}}">
                     </td> 

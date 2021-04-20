@@ -12,11 +12,17 @@ export class PlaylistsComponent implements OnInit {
   playlists = [];
   songs = [];
   searchSongText = "";
+  p : number ;
+
   constructor(private router: Router,private songService: SongsService) { }
 
   ngOnInit() {
     this.playlists = this.songService.getPlaylists();
   }
+
+  trackByFn(index, item) {
+    return index; // or item.id
+    }
 
   viewPlaylist(playlist){
     this.router.navigate(['/view-playlist'],{queryParams:{playlist:playlist}});

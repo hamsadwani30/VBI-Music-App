@@ -19,6 +19,7 @@ import { ViewPlaylistComponent } from './view-playlist/view-playlist.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AlbumsComponent } from './albums/albums.component';
 import { FooterComponent } from './footer/footer.component';
+import { PageNotfoundComponent } from './page-notfound/page-notfound.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FooterComponent } from './footer/footer.component';
     PlaylistsComponent,
     ViewPlaylistComponent,
     AlbumsComponent,
-    FooterComponent
+    FooterComponent,
+    PageNotfoundComponent
   ],
   imports: [
     BrowserModule,
